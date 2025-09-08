@@ -24,6 +24,7 @@ const displayCategory = (categories) => {
 loadCategory();
 
 
+
 // Cards
 
 // Load plants by category
@@ -49,13 +50,15 @@ const displayCards = (cards) => {
 
     cards.forEach(card => {
         const cardDiv = document.createElement("div");
-        cardDiv.classList.add("bg-white", "rounded-lg", "shadow-md", "overflow-hidden");
+        cardDiv.classList.add(
+            "bg-white", "rounded-lg", "shadow-md", "overflow-hidden",
+            "flex", "flex-col");
 
         cardDiv.innerHTML = `
             <img class="w-full h-40 object-cover" src="${card.image}" alt="${card.name}">
             <div class="p-4">
               <h2 class="text-lg font-semibold">${card.name}</h2>
-              <p class="text-sm text-gray-600 mt-2">
+              <p class="text-sm text-gray-600 mt-2 flex-grow line-clamp-3">
                 ${card.description}
               </p>
               <div class="flex justify-between items-center mt-3">
@@ -74,6 +77,8 @@ const displayCards = (cards) => {
         cardContainer.append(cardDiv);
     });
 };
+
+loadItems();
 
 
 // "id": 1,
