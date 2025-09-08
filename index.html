@@ -109,25 +109,20 @@
   </div>
 
   <!-- Cart Section -->
-  <div class="col-span-3 mt-13">
-    <div class="bg-white rounded-lg shadow-md p-5">
-      <h2 class="text-lg font-bold mb-4">Your Cart</h2>
-      <ul class="space-y-3">
-        <li class="flex justify-between items-center border-b pb-2">
-          <span>Mango Tree</span>
-          <span>৳500 × 1</span>
-        </li>
-        <li class="flex justify-between items-center border-b pb-2">
-          <span>Guava Tree</span>
-          <span>৳500 × 1</span>
-        </li>
-      </ul>
-      <div class="flex justify-between items-center mt-4 font-bold">
-        <span>Total:</span>
-        <span>৳1000</span>
-      </div>
+<!-- Cart Section -->
+<div class="col-span-3 mt-13">
+  <div class="bg-white rounded-lg shadow-md p-5">
+    <h2 class="text-lg font-bold mb-4">Your Cart</h2>
+    <ul id="cart-list" class="space-y-3">
+      <!-- Dynamic cart items will be added here -->
+    </ul>
+    <div class="flex justify-between items-center mt-4 font-bold">
+      <span>Total:</span>
+      <span id="cart-total">৳0</span>
     </div>
   </div>
+</div>
+
 </section>
 
 
@@ -151,11 +146,11 @@
 
 
 
-    <section class="impact text-center bg-[#CFF0DC]">
+    <section class="impact text-center bg-[#CFF0DC] p-8">
 
       <div class="max-w-[1000px] mx-auto">
 
-        <h2 class="text-4xl font-bold">Our Impact</h2>
+        <h2 class="text-4xl font-bold mb-4">Our Impact</h2>
 
         <!-- --------- -->
       <div class="grid grid-cols-3 gap-5">
@@ -216,7 +211,62 @@
 </main>
 
 
+<section class="bg-[#166534] flex flex-col p-8">
 
+   <h2 class="text-white text-2xl font-semibold text-center mb-6">
+        Plant a Tree Today
+      </h2>
+   <div class="flex-grow flex items-center justify-center">
+    <div class="bg-[#15803D] p-8 rounded-lg shadow-lg w-full max-w-md">
+     
+      
+      <form class="space-y-4">
+        <!-- Name -->
+        <input 
+          type="text" 
+          placeholder="Your Name" 
+          class="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 bg-white"
+        >
+        
+        <!-- Email -->
+        <input 
+          type="email" 
+          placeholder="Your Email Address" 
+          class="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 bg-white"
+        >
+        
+        <!-- Number of Trees -->
+        <select 
+          class="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 bg-white"
+        >
+          <option>Number of Trees</option>
+          <option>1</option>
+          <option>5</option>
+          <option>10</option>
+          <option>20</option>
+          <option>50</option>
+        </select>
+        
+        <!-- Donate Button -->
+        <button 
+          type="submit" 
+          class="w-full bg-yellow-400 text-green-900 font-semibold py-3 rounded-full hover:bg-yellow-500 transition"
+        >
+          Donate Now
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+</section>
+
+
+
+ <!-- Footer -->
+  <footer class="bg-[#14532D] text-center py-4">
+    <p class="text-white text-sm">© 2025 Green Earth. All Rights Reserved.</p>
+  </footer>
 
 
     

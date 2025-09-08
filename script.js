@@ -83,6 +83,7 @@ const displayCards = (cards) => {
                 <span class="text-gray-900 font-semibold">৳${card.price}</span>
               </div>
               <button
+              onclick='addToCart(${JSON.stringify(card)})'
                 class="mt-4 w-full bg-green-600 text-white font-semibold py-2 rounded-full hover:bg-green-700 transition">
                 Add to Cart
               </button>
@@ -94,6 +95,58 @@ const displayCards = (cards) => {
 };
 
 loadItems();
+
+
+let cart = []; // store items in cart
+
+// Add item to cart
+const addToCart = (item) => {
+  alert(`${item.name} added to cart!`); // show alert before adding
+
+  // Check if item already exists in cart
+  const existingItem = cart.find(i => i.id === item.id);
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ ...item, quantity: 1 });
+  }
+
+  updateCartUI();
+};
+
+// Remove item from cart
+const removeFromCart = (id) => {
+  cart = cart.filter(item => item.id !== id);
+  updateCartUI();
+};
+
+// Update cart UI
+const updateCartUI = () => {
+  const cartList = document.getElementById("cart-list");
+  const cartTotal = document.getElementById("cart-total");
+
+  cartList.innerHTML = "";
+  let total = 0;
+
+  cart.forEach(item => {
+    total += item.price * item.quantity;
+
+    const li = document.createElement("li");
+    li.classList.add("flex", "justify-between", "items-center", "bg-green-50", "p-2", "rounded");
+
+    li.innerHTML = `
+      <div>
+        <span class="font-semibold">${item.name}</span>
+        <p class="text-sm text-gray-600">৳${item.price} × ${item.quantity}</p>
+      </div>
+      <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700">×</button>
+    `;
+    cartList.appendChild(li);
+  });
+
+  cartTotal.textContent = `৳${total}`;
+};
+
 
 
 // "id": 1,
