@@ -13,7 +13,7 @@ const displayCategory = (categories) => {
     categories.forEach(category => {
         const btnDiv = document.createElement("div");
         btnDiv.innerHTML = `
-        <button onclick="loadItems('${category.category_name}')" class="btn btn-soft btn-success">${category.category_name}</button>
+        <button id="click-active-${category.category_name}" onclick="loadItems('${category.category_name}')" class="btn btn-soft btn-success text-black">${category.category_name}</button>
 
         `;
         btnContainer.append(btnDiv);
@@ -27,20 +27,35 @@ loadCategory();
 
 // Cards
 
-// Load plants by category
-const loadItems = (categoryName) => {
-    fetch("https://openapi.programming-hero.com/api/plants")
-        .then(res => res.json())
-        .then(json => {
-            // filter by category if provided
-            const filteredPlants = categoryName 
-                ? json.plants.filter(p => p.category === categoryName) 
-                : json.plants;
-
-            displayCards(filteredPlants);
-        })
-        .catch(err => console.error("Error fetching plants:", err));
+// Remove active from all buttons
+const removeActive = () => {
+  const categoryButtons = document.querySelectorAll('[id^="click-active-"]');
+  categoryButtons.forEach(btn => btn.classList.remove("active"));
 };
+
+const loadItems = (categoryName) => {
+  fetch("https://openapi.programming-hero.com/api/plants")
+    .then(res => res.json())
+    .then(json => {
+      // remove all active classes
+      removeActive();
+
+      // add active class to clicked button
+      if (categoryName) {
+        const activeBtn = document.getElementById(`click-active-${categoryName}`);
+        if (activeBtn) activeBtn.classList.add("active");
+      }
+
+      // filter plants
+      const filteredPlants = categoryName
+        ? json.plants.filter(p => p.category === categoryName)
+        : json.plants;
+
+      displayCards(filteredPlants);
+    })
+    .catch(err => console.error("Error fetching plants:", err));
+};
+
 
 
 // Display plant cards
@@ -88,17 +103,6 @@ loadItems();
 // "category": "Fruit Tree",
 // "price": 500
 // },
-
-
-
-
-
-
-
-
-
-
-
 
 
 
