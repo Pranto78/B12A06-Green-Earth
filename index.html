@@ -14,7 +14,7 @@
 
 
 </head>
-<body>
+<body class="bg-[#f0fcf4]">
 
 <div class="navbar bg-[#15803D] shadow-sm">
   <div class="w-full max-w-[1600px] mx-auto flex justify-between items-center">
@@ -82,26 +82,51 @@
 </section>
 
 
-<main class="bg-[#f0fcf4]">
+<main>
 
-
-    <div class="container max-w-[1600px] mx-auto">
-
-       <h2 class="text-xl font-bold">Categories</h2>
-        <div id="btn-category">
-           
-
-           
-
-        </div>
-
-
-
-
-
-
-
+<!-- flex thing -->
+ <!-- category section done it by api json data -->
+   <section class="api grid grid-cols-12 gap-6 max-w-[1600px] mx-auto mt-6 p-10">
+  <!-- Categories Section -->
+  <div class="col-span-2 mt-11">
+    <h2 class="text-xl font-bold mb-4">Categories</h2>
+    <div id="btn-category" class="flex flex-col space-y-2">
+      <!-- Dynamically injected category buttons -->
     </div>
+  </div>
+
+  <!-- Cards Section -->
+  <div class="col-span-7">
+    <h2 class="text-2xl font-bold text-center mb-6">Choose Your Trees</h2>
+    <div id="card-container" class="grid grid-cols-3 gap-6">
+      <!-- Card -->
+      
+     
+      <!-- Repeat for other cards -->
+    </div>
+  </div>
+
+  <!-- Cart Section -->
+  <div class="col-span-3 mt-13">
+    <div class="bg-white rounded-lg shadow-md p-5">
+      <h2 class="text-lg font-bold mb-4">Your Cart</h2>
+      <ul class="space-y-3">
+        <li class="flex justify-between items-center border-b pb-2">
+          <span>Mango Tree</span>
+          <span>৳500 × 1</span>
+        </li>
+        <li class="flex justify-between items-center border-b pb-2">
+          <span>Guava Tree</span>
+          <span>৳500 × 1</span>
+        </li>
+      </ul>
+      <div class="flex justify-between items-center mt-4 font-bold">
+        <span>Total:</span>
+        <span>৳1000</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
