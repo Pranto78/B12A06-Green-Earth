@@ -34,6 +34,17 @@ const removeActive = () => {
 };
 
 const loadItems = (categoryName) => {
+
+   const cardContainer = document.getElementById('card-container');
+
+  // Show loading spinner
+  cardContainer.innerHTML = `
+    <div class="col-span-3 flex justify-center items-center h-40">
+      <span class="loading loading-dots loading-md text-green-600"></span>
+    </div>
+  `;
+
+
   fetch("https://openapi.programming-hero.com/api/plants")
     .then(res => res.json())
     .then(json => {
