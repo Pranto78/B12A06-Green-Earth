@@ -1,4 +1,4 @@
-let allPlants = []; // global store
+let allPlants = []; 
 
 const loadCategory = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
@@ -45,12 +45,12 @@ const loadItems = (categoryName) => {
   fetch("https://openapi.programming-hero.com/api/plants")
     .then(res => res.json())
     .then(json => {
-      // filter plants
+      
       const filteredPlants = categoryName
         ? json.plants.filter(p => p.category === categoryName)
         : json.plants;
 
-      // save globally so modal can use it
+      
       allPlants = filteredPlants;
 
       // remove all active classes
